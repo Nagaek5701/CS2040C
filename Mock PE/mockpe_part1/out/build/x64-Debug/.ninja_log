@@ -1,0 +1,14 @@
+# ninja log v5
+48	2716	7331405707889413	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	bf1b6fbb9fcd67ea
+21	5292	7331405733634130	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.obj	e834704eda07fae5
+34	2957	7331405710292990	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	c43cb8f6ddf1b01a
+27	3961	7331405719948266	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.obj	fb444a0fdf88ce4
+15	4077	7331405721496835	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	f9856d6b296233dd
+10	5345	7331405734156457	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.obj	38ad4cab67f69bee
+40	5467	7331405735380589	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	7598c7fc8f324123
+34	177	7331405919250515	lib/gtest.lib	83bd3e742dd732f2
+21	216	7331405919349090	lib/gmock.lib	c6a60a6da9920ee3
+28	221	7331405919439543	lib/gmock_main.lib	d4619de66f5521f3
+177	231	7331405920208196	lib/gtest_main.lib	f15594b95a3347bb
+4	1426	7331406361506832	CMakeFiles/caterpillar_test.dir/caterpillar_test.cpp.obj	a76ea2867bf3e78c
+1427	1907	7331406366053841	caterpillar_test.exe	28a7349bf9a9ad4e

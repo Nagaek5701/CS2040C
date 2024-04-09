@@ -1,0 +1,164 @@
+Lecture 04a - Sorting lecture continued:
+
+Continuing from Bubble Sort Last week:
+	- Recall that the comparison operator used for sorting needs to be transitive! All sorts we're looking at are Comparative sorting algorithms.
+
+1. Selection Sort:
+	- Same as playing poker/Dai Di
+	- Get the smallest one and put it to the left, then next smallest one to left from the remain "unsorted" array:
+	
+	Psuedocode:
+	
+	SelectionSort(A,n):
+		for j = 1 to n-1:
+			find index k s.t A[k] is the smallest in A[j to n]
+			swap(A[j] , A[k])
+			j++;
+	
+	
+	
+	- So what is the invairant? The LHS after each iteration, meaning after k iterations we have k sorted elements.
+	- We are done after n-1 iterations!
+	
+	Time Complexity : O(n^2)  -> Quite similar to Bubble Sort
+	
+	
+2. Insertion Sort :
+	- Even more similar to poker card sorting.
+	- Pick the unsorted element into the 'rightful' position, but how can we insert when the array is not insertble? Swapping
+	- Basically bubble sort but instead of swapping largest element to the right, we swap the element until it is in its right place.
+	- What is the invariant ? After j iterations, we will have the sub-array A[1 to j] that is sorted.
+	
+	
+	PseudoCode:
+	
+	InsertionSort(A,n):
+		for j < 2 to n:
+			key < A[j]
+			Insert key into the sorted array A{1 to j-1]
+			
+			
+	Time complexity : O(n^2)
+	
+	
+	
+3. Merge Sort:
+	- Divide and conquer style by utilising recusion
+	- Cut the array into 2 continuously until it is split into literally a bunch of 1 element arrays (sorted) technically :)
+	- Then we need some magic -> Given 2 sorted arrays we can merge them into a larger sorted array
+	
+	
+	PseudoCode:
+	
+	MergeSort(A,n)
+		if (n=1) then return;
+		else:
+			X = MergeSort(A[1 to n/2], n/2);
+			Y = MergeSort(A[n/2 + 1 to n] , n/2);
+			
+		return Merge(X, Y, n/2);
+		
+	- So we still actually need the magic function Merge() that returns a merged and sorted array from 2 sorted arrays:
+		
+		> Use SELECTION SORT! But why? Since the 2 sub arrays are already sorted, we just need to compare the first 2 elements of each array
+		  after each iteration to compare and add to the new sorted array!
+		  
+	Time complexity : T(n) is actually recursive -> Computing everything out we get -> O(n log n)
+	
+	Wow! That's the fastest possible time complexity for comparison sorts! So why is MergeSort not that widely used?
+	
+	> Space complexity : Everytime we recusively call the function we actually need n log n new small arrays -> expensive!
+	
+	Is there a solution to save space??? 
+	
+	ANS : YES 
+	
+	> In reality we only need 2 blank arrays the size of the original array : HOW?
+		1. Take turns.
+		2. Since each time we merge sort the smaller arrays to the larger merged array, we don't need the memeory to continue storing the 
+		   smaller arrays anymore so we can re-purpose the array memory to contain the NEXT iteration of mergesorted arrays.
+		3. Repeat
+		4. Profit???
+		
+	Thus we only need O(n) space instead of O(n log n) space, which is still quite expensive!
+	
+	
+	
+4. Properties of Sorting Algorithms:
+	- Stability of sorting algorithms  > duplicates in array? , does the sorted array PRESERVE the order of the elements after sorting?
+	
+	Meaning : Lets say we have some 2D array of student names and their marks, if we sort them based on their marks, will the original order be
+			  preserved?
+			  
+			ie. The order of the KEYS needs to be preserved when they're duplicate keys.
+			
+	- So which sorts are stable?
+		> Bubblesort : Stable 
+		> InsertionSort : Stable
+		> SelectionSort : Unstable .... Why? > Think of a possible case that is not stable.
+		> MergeSort : Stable...but what if the 2 first elements of the 2 sub arrays are stable? Which one to pick first ? How can we ensure stability?
+		
+	
+	
+	
+5. QuickSort! : Most useful Sorting Algorithm but has a worst - case time complexity of O(n^2)?!?
+
+		- In practice : 
+			QuickSort is very fast
+			Has many optimizations
+			No extra space needed ( "In-place" ) ie. Merge sort needs extra memory
+			Good cache performance
+			Good parallelization
+		
+		- Concept > Divide and conquer > Assume that life is beautiful > meaning assume that every element in the array is unique.
+		
+		PseudoCode : 
+		
+		QuickSort(A[1 to n] , n)
+			if (n==1) then return;
+			else
+				p = partition(A[1 to n], n)
+				x = QuickSort(A[1 to p-1, p-1]
+				y = QuickSort(A[p+1 to n], n-p)
+				
+		
+		What in the hell is partition doing here? > It gets one element in the array and make it a "pivot"
+		
+		> meaning that every element that is smaller than the pivot goes to the left and everything that is larger goes to the right.
+		> then do this recurssively for each of the sub arrays until the entire thing is sorted!
+		> worst case is that we pick a pivot that is on the extremes...
+		
+		
+		KEY observation : after each iteration...what is the invariant? > The PIVOT! Since we have essentially 'sorted' the pivot by moving everything
+						  smaller than it to its left and everything larger than it to its right.
+						  
+		So...how do we actually partition ?
+		
+		> 1. Select some element in the array, ie the first element
+		> 2. Create 2 'pointers' in the remaining sub-array (excluding the first element)
+		> 3. Check : if LH < pivot move right , if RH > pivot move left. 
+		> 4. If both 'pointers' are 'stuck', SWAP THEM! then can continue already
+		> 5. Then when the 2 'pointers' meet, we have already partitioned it  so we just need to put the first element in its rightful place.
+			 which is done by swapping the pivot with the LAST element pointed to by the LH 'pointer'!
+		> 6. Implement in the remaining sub-arrays :)
+		
+		
+		Partition PseudoCode :
+		
+		partition(A[1 to n] , n):
+			*use brain*
+			
+		
+		What if theyre duplicates? > What will go wrong? > Dupes might = pivot....then die... JK! Just let one of the pointers have <= !
+		*can also pack/group the duplicates together when they are the pivot* (3-way partition)
+		
+		
+		
+		Is quick sort stable? ANS : nope
+		
+		
+		Time complexity : If we're lucky > O(n log n)    If we're unlucky > O(n^2) 
+		
+		How can we ensure that we are always lucky?!? (Next lecture)
+		
+	

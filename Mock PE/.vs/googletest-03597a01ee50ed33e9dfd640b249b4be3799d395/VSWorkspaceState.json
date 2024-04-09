@@ -1,0 +1,8 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "googletest-03597a01ee50ed33e9dfd640b249b4be3799d395\\out\\build\\x64-Debug",
+      "googletest-03597a01ee50ed33e9dfd640b249b4be3799d395\\out\\install\\x64-Debug"
+    ]
+  }
+}

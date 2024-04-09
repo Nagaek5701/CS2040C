@@ -1,0 +1,79 @@
+ ADTs ( Abstract Data Types), Inheritance in CPP and Polymorphisms:
+ 
+ 1. What are abstract data types (ADTs):
+	- Consists  of 2 things:
+		* Interface/Behavior
+		* Implementation
+	- So actually, when we are working with ADTs , we are more concerned about the implementation, since there are many many ways to get the same
+	  behvaior, but is it efficient? eg. Inserting something into a list > we can used a linked list or we can also just delete the entire array
+	  and recreate it everytime someone changes the list.
+	  
+2. Stacks : an abstract data type where it follows LAST IN FIRST OUT (LIFO)
+	- the last element that is added to the stack will be the first to be removed/accessed.
+	*Interface > void push(element x) to add an element on top
+			   > pop() to remove the top element of the stack
+	
+	*Implementation > Linked list? but then what about storing mixed types? -> Use a template!
+					> 
+					
+3. Queue : first in first out (FIFO)
+	*Implementation > enqueue(element) queues the element into the queue
+					> dequeue() removes and returns the element at the end of a queue ( the next element in line )
+	
+
+4. Lists : something like a combination of a stack and a queue, imagine a python list > what is the interface like? How is implemented?
+
+
+5. Inheritance : 
+	- How to build a better stack? A stack that has new & improved functionalities?
+	> Recode another class from scratch?
+	> Copy the code into a new class and modify? > Is this good practice? What happens when we need to alter the original class?
+	
+	- We create a subclass! where it inherits from a stack superclass/parent class :
+	
+	template<class T>
+	class ImprovedStack : public Stack<T> {
+		public:
+			void push();
+			T pop();
+	};
+	
+	template<class T>
+	void ImprovedStack :: push(T x){
+		*Implementation here*
+	};
+	
+	6. Polymorphisms : 
+		-For example : what if we have this :
+		
+		Stack<int> *s;    //creating an integer stack pointer
+		ImprovedStack<int> bbsi; //creating an improved stack class called bbsi;
+		
+		s = &bbsi // then we assign the stack pointer to the improved stack so the pointer is pointing to bbsi;
+		
+		s-> push() // Calling push(), Which push() does it call? the push() of the parent or the improved stack???
+		
+		ANS : It calls the parent push(), ie the stack push(). Because the pointer IS a stack pointer.
+		
+		
+		
+		- So how can we alter the code s.t calling s->push() will call the push() of the ImprovedStack??
+		
+		> using the "virtual" keyword in the orignal class functions:
+		
+		template<class T>
+		class Stack{
+			public:
+				virutal void push(T x);
+				virutal T pop();
+				virutal bool isEmpty();
+		
+		};
+		
+		- How does this work? 
+		> when the virutal keyword is used, during RUNTIME (not compilation time), the code will search if the child class has a similar method(),
+		> and then it will call that method over the parent method instead.
+		
+		> So acutally right...lets say we have a parent class called shape, with a bunch of subclasses like triangle , square etc
+		> if we have methods like area(), then we don't actually need to implement in the parent class at all!
+		

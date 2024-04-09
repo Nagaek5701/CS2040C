@@ -1,0 +1,21 @@
+# ninja log v5
+1924	2003	7294555651099354	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	6a08c3ab3a50e258
+2	79	7294555631876202	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	79800fc751463047
+81	1686	7294555647817190	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	cbc136b17a10fa4
+1687	1774	7294555648727796	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	dd335dbc3005dcd3
+2	79	7294555631876202	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	79800fc751463047
+81	1686	7294555647817190	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	cbc136b17a10fa4
+1687	1774	7294555648727796	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	dd335dbc3005dcd3
+1774	1858	7294555649670955	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	cf4df60de1c56176
+1774	1858	7294555649670955	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	cf4df60de1c56176
+1858	1924	7294555650320173	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	a8a085a5650e4d04
+2187	2301	7294555654097947	CMakeFiles/googletest-populate-complete	a52ff81226d738bb
+1858	1924	7294555650320173	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	a8a085a5650e4d04
+1924	2003	7294555651099354	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	6a08c3ab3a50e258
+2003	2082	7294555651888209	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	ac5b408812259db9
+2003	2082	7294555651888209	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	ac5b408812259db9
+2082	2187	7294555652834496	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	65fb0f20b2acaf63
+2082	2187	7294555652834496	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	65fb0f20b2acaf63
+2187	2301	7294555654097947	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	a52ff81226d738bb
+2187	2301	7294555654097947	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete	a52ff81226d738bb
+2187	2301	7294555654097947	C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	a52ff81226d738bb

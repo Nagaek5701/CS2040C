@@ -1,0 +1,30 @@
+Bubble sort:
+
+1. Sorting : 
+	> usually given an input array, we try to sort the elements in the array s.t it's ascedning or decending 
+	> duplicates are allowed!
+	
+	
+2. BOGOSORT!
+	> The goat sorting algo!
+	> Worst case theoretically is O(n!)
+	> Best case theoreticallt is Omega(1)
+	
+3. Bubble sort:
+	> Iterating over the array and comparing adjacent elements, swapping them so that the smaller element is on the left.
+	> After the first iteration, the largest number will already be on the most RHS, so next time we just have to iterate to N-1.
+	> So actually after i iterations, the last i items are already fixed.
+	
+	Pseudocode :
+	
+	Bubblesort(A, n)
+		repeate until there is no more sorting
+		for i from 1 to n-1
+			for j from 1 to n-1
+				if A[j] > A[j+1] then swap(A[j], A[j+1})
+	
+	
+	> Time complexity is n + (n-1) + (n-2) + ... + 1 = O(n^2).
+	
+	* We can actually overload the '>' operator to do arbitrary comparisons to establish a transitive relationship so that we can sort basically
+	  anyhting *

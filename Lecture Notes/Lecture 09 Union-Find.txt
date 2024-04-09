@@ -1,0 +1,38 @@
+Lecture 09 - Union Find, an ADT
+
+1. Disjoint set : 
+	> Solving mazes, checking whether 2 nodes are connected in a graph...
+	
+	>Dynamic connectivity: In the beginnning every node in the maze is not connected (disjoint), then we can update the 'wall' to join 2 disjoint sets.
+						   This connects the 2 sets to create a path.
+						   
+						   Union : connects 2 sets
+						   Find : is there a path connecting the 2 sets?
+						   
+	> ADT with methods:
+		1. DisjointSet(int N) : constructor that creates N objects
+		2. bool find(Key p, key q) : Are p and q in the same set?
+		3. void Union(key p , key q) : Merges the 2 sets
+		
+		
+		1. Quick Find: 
+		
+			> each component/obj has its down componenetID that can be stored in an array, so when we union them, we can update their union IDs, O(n)
+			> Finding is just checking if they have the same componenetID, so O(1) 
+			
+		2. Quick Union: 
+			> arrage the componenets in a tree, then to union 2 elements we just link their highest parents(roots), ie one parent becomes the child of the other.
+			> So then union will be O(n), and then find will be O(n) also. WTF then why even use if it's so slow?
+			
+		3. Optimizing:
+			> The question is: which parent do we choose as the child when we union 2 components together?
+			> ANS: We should choose the parent with the largest size as the parent, in order to minimize the total height of overall tree.
+			> This is called a Weighted-Union
+			> We will end up with a tree of O(log n)
+			> Thus weighted-union has O(log n) for both find and union.
+			
+		4. Path compression:
+			> After finding the root, set the parent of each traversed node to be the root.
+			> So after one search, we will end up with Akkerman funciton (m.n) which is almost constant.
+			
+		5. 

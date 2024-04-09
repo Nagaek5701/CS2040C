@@ -1,0 +1,16 @@
+# ninja log v5
+65	2287	7286535791756925	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	c0ed4189151ce1f2
+38	4877	7286535817577115	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.obj	ccc6a2f4d94b3b6a
+70	228	7286536015113794	lib/gtest.lib	83bd3e742dd732f2
+18	2408	7286535792696447	CMakeFiles/RGB_test.dir/RGB_test.cpp.obj	ed0ee0832387318c
+59	4818	7286535816917065	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	9edff7025bd2a420
+51	2608	7286535794956419	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	e9651ca0a09f6060
+32	3491	7286535803839906	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	b0e0b5cdd6855c01
+45	3517	7286535804000266	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.obj	4455c468e1baef77
+25	4846	7286535817303036	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.obj	7755f0ec7aab7547
+47	282	7286536015273825	lib/gmock.lib	c6a60a6da9920ee3
+229	285	7286536015907247	lib/gtest_main.lib	f15594b95a3347bb
+60	288	7286536015306949	lib/gmock_main.lib	d4619de66f5521f3
+39	675	7286767001968419	CMakeFiles/RGB.dir/RGB.cpp.obj	f091a2d27d636849
+676	731	7286767002443675	RGB.lib	3c18c2cd62552d1
+731	982	7286767004313709	RGB_test.exe	7a6902fb2dce8031

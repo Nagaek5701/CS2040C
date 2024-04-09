@@ -1,0 +1,59 @@
+Lecture 05b - AVL Trees
+
+1. BinarySearchTrees:
+	> How to delete a node?
+		> if the node is leaf, then it is easy we can just remove it from the parent->right = null and free up the memory (delete the node).
+		
+		> what if the node has children? 
+			1. node has 1 child , easy also, similar to deleting a node in a linked list.
+			   Point the parent pointer to the child then delete yourself :)
+			 
+			2. node has 2 children...then how?
+				>  STEP 1: find a successor (from last lecture)
+				>  STEP 2: replace node with successor...
+				>  STEP 3: delete the successor
+				
+			Does this work? Remember...the successor is the minimum of the right sub-tree > successor can only have no child or 1 child (alr know how todo).
+			
+			
+2. AVL Tree Balancing:
+	
+	> What does it mean to be balanced? > Recall that the same tree can have different 'shapes' depending on how nodes are inserted.
+	> But...most of our methods (search, query etc) are O(tree height).
+	> So we want to minimize our tree height! (Balancing)
+	
+	> How to make a tree more balanced? 
+		> Alot of different methods but we only go through AVL tree balancing method:
+			
+			1. For every tree node, store the height. After insert/delete , update the height as well for relevant nodes;
+			
+				eg. after inserting > height = max(left.height, right.height) + 1;
+				
+			2. Define Invariant : We cannot always have a perfectly balanced node ( children have same height )
+				
+				So we use AVL def : a node is height balanced if abs(v.left.height - v.right.height) <= 1. *
+				
+				But does this relaxed definition still give us a good height ?
+				
+				Claim: 
+					we want to show h < 2 log n <=> 2^(h/2) < n , meaning height is O(log n).
+					
+					This means that for a tree with height h , a height-balanced tree contains at least 2^(h/2) nodes!
+					
+					Proof by induction:
+						> (watch lecture I can't be asked to write it down).
+					
+			3. ok..how to actually maintain the height balance?
+				> The balance is disrupted when we either insert or delete a node.
+				> After we insert/delete , which nodes become unbalanced? 
+				
+				
+			4. TREE ROTATION! (used for balancing) : **IMPT PLEASE INCLUDE DIAGRAMS/SOMEHTING IN CHEAT SHEET!!!!!**
+				> Left and right rotations of the tree > the root changes to balance the tree.
+				
+				> Left rotation -> original root moves to the left and becomes a left child. (Original right child now becomes parent)
+				> Right rotation -> original root moves to the right and becomes a right child. (Original left child now becomes parent)
+			
+			5. Of course we need a left child for a right rotation and we need a left child for a right rotation.
+			
+			(TBC 20/2/24 lecture)

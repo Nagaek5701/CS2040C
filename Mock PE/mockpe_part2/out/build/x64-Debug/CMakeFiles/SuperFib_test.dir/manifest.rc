@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/Keagan/Desktop/nussy4/CS2040c/Mock PE/mockpe_part2/out/build/x64-Debug/CMakeFiles/SuperFib_test.dir/embed.manifest"

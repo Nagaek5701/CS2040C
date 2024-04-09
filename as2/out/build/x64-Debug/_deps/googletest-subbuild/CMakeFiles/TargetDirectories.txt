@@ -1,0 +1,3 @@
+C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+C:/Users/Keagan/Desktop/nussy4/CS2040c/as2/out/build/x64-Debug/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

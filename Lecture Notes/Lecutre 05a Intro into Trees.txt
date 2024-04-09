@@ -1,0 +1,170 @@
+Lecture 05a - Intro into Trees
+
+1. Is it possible to sort faster than O(n log n) ? 
+	> No not really, we can mathematically prove that O(n log n) is the limit for COMPARISON sorts!
+	> However, some sorting algorithms are indeed faster eg. Radix sort.
+	
+	> Claim: The limit for comparison sort is O(n log n):
+		
+		Proof Outline: consider sorting 3 numbers {a, b ,c} > what are all the possible combinations?
+			> Representing it in a Decision Tree : what are we doing when we are sorting? We are travelling along the decision tree.
+			> How many steps does it take? How many leaves? ANS: N! leaves 
+			> So sorting is travelling from the root -> leaves, what is the height of the tree?
+			
+			
+			> Height of a tree with n! leaves -> log(n!) 
+			
+			> By Stirling's approximation where n! > (n/e)^n , we can get log(n!) > log(n/e)^n == n log (n/e) == Omega (n log n) !
+			* OTOT google stirling's approximation for the factorial function
+			
+			> This means that no matter the permutations of the leaves (swapping) , the minimum height of the tree is always > n log n.
+			
+		
+	
+2. Introduction into Trees:
+
+	> Alright, sorting is good/useful but what if our list is dynamic? Do we sort it everytime we add something new? No...it's too expensive.
+	
+	> So we have dynamic data structures eg. Dictionary implemented using Trees!
+	
+	> Dictionary ADT: 
+		> Can insert key-value pairs into table
+		> Can search for a value based on some key 
+		> Can find the successor to some key k 
+		> Can find the predecessor to some key k
+		> Can delete key
+		> Can check if key k exists (boolean)
+		> Can check size of dictionary = num of key-value pairs.
+		
+	> So what are some options to implement this ADT? 
+		1. Sorted array: 
+			> inserting is expensive since chunks of the array need to be shifted to make space for new element O(n)
+			> search is cheaper since the array is already sorted. O(log n)
+			
+		2. Linked list:
+			> inserting is O(n)
+			> Search is also O(n) yikes.
+			
+		3. We can use TREES!
+			> Nodes contain key value paris
+			> Node at the top is the root and each node can have 'children'.
+			> Nodes without anymore children are called leaves.
+			
+			> Different types of trees > Binary Trees only have 2 children ie. left and right.
+			
+			
+			> Trees have a fractal structure! ie. Recusive definition = a node pointing to 2 Sub-Trees
+			
+			Code:
+			
+			template <class T>  //Define tree node structure first ( like node in Linked list )
+			class TreeNode{
+				private:
+					T _item;
+					TreeNode<T>* left; //left treenode pointer
+					TreeNode<T>* right; //right treenode pointer
+				
+				public:
+					TreeNode(T x){} // constructor here
+					
+				friend BinarySearchTree<T>;
+				}
+				
+				
+			
+			template <Class T>
+			class BinarySearchTree{
+				private:
+					TreeNode<T>* _root; //top node of the tree
+				
+				public:
+					BinarySearchTree() {  //constructor
+						_root = NULL;
+						}
+					void insert(T){}   // implementation of methods etc
+					
+		
+		** THERE IS A DIFFERENCE BETWEEN A BINARY TREE AND BINARY SEARCH TREES **
+			> Binary search trees are a sub-set of binary trees where all the left-children are smaller than the parent node and every right-children is bigger! (Recursive) !
+			
+		
+3. Heights of trees:
+	> The number of steps FROM the leaves to get to that node is the height of that node.
+	> Meaning height(node) = 0 if it is a leaf.
+	
+	> Computing the height of a node:
+		
+		Code:
+		
+		int TreeNode<T>::height(){
+			int leftHeight = -1; //if left = null
+			int rightHeight = -1; //if right = null (no right child)
+			
+			if (_left != null){
+				leftHeight = _left->height();
+				}
+			if (_right != null){
+				rightHeight = _right->Height():
+				}
+			
+			return max(leftHeight, rightHeight) + 1;
+			
+		
+4. Searching for a max/min:
+	> In a BinarySearchtree, everything to the right is max so traverse the tree all the way down to the right most leaf.
+	> Similarly to find min,  we just all the way down to the left leaf and win.
+	
+5. Searching for a specific element:
+	> Very similar to binary search : 
+	> Check if current is smaller or bigger than value and traverse left or right respectively.
+	
+6. Inserting nodes:
+	> First, we need to find where to insert the node first > perform the same search again first!
+	> Then let's say we need to insert the new element in a place that has no node -> create a new treenode!
+	
+	
+	
+7. Time complexity for insert() / exist() ? 
+	> What is the worst case for insert? 
+	> All of the time complexities is dependent of the Height of the tree (next lecture)
+	
+8. Travesal of the tree:
+	> getting to every single node of the tree ?
+	> For Binary Search Tree -> In-order traversal ( recursive )
+	
+		PseudoCode :
+		
+		if (!node) return;
+		inOrder(node->left); //calls the function recursively onto left child
+		cout << node->item << " "; //prints out if the left child of that node is not null
+		inOrder(node -> right) // then after clearing out the left branch of the node do the same for the right branch.
+		
+	> What if we mix up the order? Pre-order traversal:
+	
+		PseudoCode:
+			if (!node) return;
+			cout << node->item << " "; //print out current node first
+			preOrder(node->left);	//then recursively call left
+			preOrder(node->right);	//then recursively call right
+			
+			
+	> Post-Order traversal : same but left left and right child get called first before printing own node.
+	
+	> Level-Order traversal : print out layer by layer
+	
+9. Successor and Predeccessor methods:
+	> How to find the next item in the tree:
+	> Eg. successor(key) will be larger than the key itself
+	> So we need to find the successor in the right sub-tree 
+	> It will be the MINIMUM value of the right subtree!!!
+	
+	* What is the right child doesn't exist? eg. you're on a leaf that is the left-child of some node, then the successor of that leaf = parent!!!!!!!!
+	* Since the next largest node will be the parent node of the left leaf. 
+	
+	> what if the key is not in the tree, this method will still work since it will return the next largest node ( the root )
+	
+	
+
+
+		
+			

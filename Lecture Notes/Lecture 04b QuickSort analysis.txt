@@ -1,0 +1,53 @@
+Lecture 04b - An analysis of the QuickSort Algorithm
+
+1. Recap  : Quicksort is quite simple in its concept, but it is harder to optimize and analyse ( due to the probabilistic aspect ).
+
+	- interesting fact : Blackjack can be legally beaten by a skilled enough player > counting of cards in casinos since there is no replacement.
+		> In 1980 6 MIT students card counted for a ~ hourly rate of $170/hour.
+		
+	- the idea relevant to our analysis of the quicksort algorithm is...expected value E(X)! 
+	
+	- so an event has probability p of occuring -> if we want to observe p, we need 1/p events on average.
+	
+	- So coming to the time complexity of quicksort , what is the expected time complexity of the algorithm? we know that it can vary between
+	  O(n log n ) and O(n^2) depending on the pivot we choose.
+	  
+2. Choosing the quicksort pivot:
+	
+	- is there a way for us to chose the pivot such that we always end up with the O(n log n ) case? Is chosing randomly a good way?
+	
+	- Claim : choosing randomly gives an expected time complexity of O(n log n)!
+	
+	Main idea :
+	
+	
+	1. A pivot is considered good if it divides the array s.t each of the 2 pieces is at least n/10 in size
+	
+	2. Keep partitioning until the chosen pivot is 'good' ( Meaning #of elems > pivot > n/10 and #of elems < pivot > n/10 ).
+	
+	3. How many times do we need to partition to get a 'good' pivot???
+	
+	
+	> Paranoid Quicksort (random until pivot is good) : 
+	
+	Even crazier claim : We can get a good pivot in O(1) time! 
+	
+	> P(picking a good pivot) = 8/10 regardless of the size of the array
+
+	> So to get a good pivot we need 1/(8/10) times! Thus O(1) time!
+	
+	So...why is n/10 enough to ensure O(n log n) time complexity?
+	
+	> After the last partition, we will get 1 = n(9/10)^h for n partitions = O(n log n)!
+	
+	> Thus the n/10 rule is arbitrary actually...
+	
+	
+3. Key Idea : Just choose the pivot randomly and let probabilty do the work! ( Randomized algorithms )
+
+	* Another optimization : If array is small , swap to Insertion Sort! (Hybrid sorting algorithms)
+	
+	Qn : Is quicksort limited to just one pivot? what about 2,  3???
+	
+
+	

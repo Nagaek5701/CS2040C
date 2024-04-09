@@ -1,0 +1,104 @@
+Lecture 10 - Graph basics
+
+1. Sliding puzzles:
+	> Each state of the puzzle is a node.
+	> Two nodes are connected by an edge if they differ by one move.
+	
+	> The number of moves to go from unsolve to solved has to be <= the diameter
+	> But similar to how a 3x3 Rubiks cube cannot be solved if one of the corners are rotated.
+	
+2. 2x2 Rubiks cube:
+	> How many vertices? > 8 cubes with 3 states per cube > 8!x3^8 possible states, counting the symmetries
+	> How to find the diameter? > D of 2x2 = 14.
+	
+	> For 3x3, D = 20 (2010, Tomas Rokicki)
+	
+	> How did people find the lower bound? > Brute force it?
+	> For the upper bound > Enumerate al possible combinations. 
+
+	> Big Theta (n^2/log n) > for a nxnxn cube.
+	
+3. Adjacency List:
+	> Graph stored as???
+		1. Nodes are stored in an array
+		2. Edges are stored as a linked list per node, so the length of the linked list  = degree of that node
+		
+		So we end up with an array of linked lists
+		
+4. Adjacency Matrix:
+	> Instead of linked list we use a 2D-array and we put a 1 if 2 nodes share an edge
+	> Put a 0 if they do not share an edge (not connected)
+	> The matrix will be symmetrical about the diagonal.
+	
+	> If A is the matrix > A^2 will give all the length 2 paths.
+	> A^n will give all the length n paths
+	
+5. So use matrix or list?
+	> If we have a circular graph > should use Adjacency list since the space complexity is limited to O(n) since each node will only have at most 2 neighbours.
+	
+	> But for a complete graph like a clique, they are both O(n^2)
+	
+	> In general : Space = O(V + E)
+	
+	
+	> If we are querying, the matrix will have O(1) search time, since we just have to find the index.
+	> If we are listing, well obviously then the adjacency list works better here.
+	
+	
+6. Depth first search vs. Breadth first search:
+	
+	> Traversal of a graph:
+		> BFS: Search level by level
+			1. Frontier is set containing all the current level nodes.
+			
+			2. Then at each iteration we advance the frontier, by updating the frontier with its neighbour.
+			
+			3. If the node has already been in the frontier before, we don't update it.
+			
+			4. Using boolean vector to keep track of if a node has been visited before.
+			
+			5. Keep looping until the frontier is empty. If it's not empty, we advance by:
+				> extracting each node from the frontier and finding all it's neighbours.
+				> if neighbours not in visited, add to newFrontier.
+				> repeat.
+				
+			6. So there will be 2 frontiers > current one and a new one (active frontier)
+			
+			7. If we keep track of all the parent linkages while searching, it will give a tree that can be used to find the shortest path.
+			
+			
+			8. But BFS dosen't work for a disjoint graph with more than 2 disconnected components.
+			
+			9. Solution > if we have not visited the node before, we start a BFS from that node.
+			
+			10. O(V+E), if E = V (complete graph), then worse case is O(V^2)
+			
+			11. Can use a queue (iterative ver.)
+			
+			
+		> DFS: Search each path until stuck
+		
+			1. Recursively explore each path.
+			
+			2. If stuck, go back to last node with another edge.
+			
+			3. Have to account for disconnected graphs like BFS
+			
+			4. A DFS parent graph is a tree but it doesn't really mean anything 
+			
+			5. DFS can also be done with a stack. > how? (iterative ver.)
+			
+			6.
+			
+7. Direct Graphs:
+	> Same as a graph but the edges are now directed, ie they have a direction, a flow.
+	
+	> Ie. order of an edge e(v,w) matters. (edge from v->w)
+	
+	> If we represent it with an adjacency list:
+		> the linked lists now store only the outgoing edges.
+	
+	> If we represent with an adjacency matrix:
+		> Then it won't be symmetrical about the diagonal anymore since:
+		e(v->w) != e(w->v). One has to be 1 and the other has to be 0.
+			

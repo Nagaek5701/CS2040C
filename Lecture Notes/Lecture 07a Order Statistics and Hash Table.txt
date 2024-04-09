@@ -1,0 +1,75 @@
+Lecture 07a - Order statistics, Hash Table
+
+1. Dynamic Data structures
+	> Can be modified on the fly, adding and removing data while maintaining
+	the invariant (eg. sorted or something)
+	
+	> Can be done by augmenting existing data structures to create new 
+	augmented data structures
+	
+2. Order statistics:
+	> Given a set of integers as input we want to find the rank, ie the fourth
+	largest element.
+	
+	> It is easy if it is sorted, but that is already O(n log n)
+	> Of course we can use an algorithm like Quick Select.
+	
+	> What about using trees? We can augment the tree nodes to include the rank.
+	> However, when we add and delete new nodes we need to update ALL the other
+	ranks...
+	
+	> Instead of storing the ranks... we can store the size of the sub-tree include
+	every node, ie the weight: weight of leaf = 1
+	
+	weight of node = weight of node.left + weight of node.right + 1
+	
+	> With the weight, the rank of each node is now automatically the weight
+	of its left sub-tree + 1, what if it is on a smaller right-subtree?
+	
+	> So we need to find all the nodes that are smaller than the node. So we can
+	do that by :
+	
+	rank(node){
+			rank = node.left.weight + 1
+			while node != null {
+				if node is left child -> do nothing
+				
+				else if node is right child -> rank += weight of left sibling + 1
+				
+				node = node.parent //moving up the tree
+				
+			return rank;
+	
+	> But how to find a specific rank? If we go right we are actually skipping
+	all the nodes on the left sub-tree:
+	
+	So we need to keep track of the left ranks, we can do that by recursively 
+	calling select(k - current rank) on the right sub-node.
+	
+	> STILL : how do we update the weights then?
+		> all the weights of ancestors just need to +1
+		
+
+
+3. Hash Table:
+
+	> Key & Data pairs? -> No need successor/previous etc, just need to return data
+	given any key.
+	
+	>Look it up in a hash table: O(1) search time, how is that possible?
+	
+	>Assuming no duplicate keys + no mutable keys.
+	
+	>Need to establish a mapping from the universal set of inputs to some output set:
+		ie. a function, a hash function.
+		
+		> The hashing function is proven to be non-surjective, due to pigeon hole
+		princicple.
+		
+		> Then we can fix this clash of mappings by adding a linked-list at each output 'bucket'
+		(Chaining)
+		* Assuming there is a simple uniform hash mapping
+		
+		(Research abt hashing)
+	
+	

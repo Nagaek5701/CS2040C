@@ -1,0 +1,99 @@
+Big O notation and Searching:
+
+1. How do we quantify an algorithms efficiency? 
+	- How can we prove mathematically that one search algorithm is faster than another one?
+	
+	> Space and time complexity:
+	
+	> Space : How much memory is this algorithm using?
+	> Time : How long does it take?
+	
+	
+	For example : We compare downloading movies to having them physicall shipped :
+		> If downloading 1 movie takes 1h , and shipping it takes 3 days > Downloading is faster.
+		> But what if I want to download 3000 movies?
+		> Then it is 3000hrs vs. STILL 3 days to ship all 3000 movies.
+		
+	> We say that downloading is in O(n) time where as the shipping is in O(constant) = O(1) time!
+	> So when we are talking in terms of bigO notation, we only care about what happens when n -> inf.
+	
+	- Time complexity T(n) = O(f(n)) => there exists a constant c s.t T(n) <= c*f(n) where we can all c the transience time.
+		> where f(n) is some function eg. n^2 + 2 and c*f(n) is the UPPER BOUND of the function.
+		> we are interested in the lowest upper bound, so when using O(n), it is referring to the tightest bound.
+		
+	- The bigO notation is linear, so we can combine functions and then apply the same arithmetic rules.
+	
+	
+	
+2. Algorithm Analysis : how do we determine the bigO notation of some algorithm?
+	- focusing on sequential computing and not parallel > all operations take constant time (assumption)
+	> Loops : cost = number of loops * max cost of one loop itertion
+	> If else statements : max(cost of if, cost of else)
+	> Recusion : Close to 2^n (general rule)
+	
+	
+3. Searching: 
+	- Linear search > O(n) , since we are always assuming the worst case scenario. QN : what is the average case? n/2!
+	- Dividing and conquer!
+		> Binary Search : if an array is SORTED, then we can check in terms of halves.
+		
+		Given x and a sorted array, if x is larger than the middle element => we can eliminate the entire LHS.
+		If the x is smaller then the middle element then we can eliminate the RHS.
+		Then we can do this recursively until we 'converge' on x.
+		
+		Pseuduocode:
+		
+		Search(A , key, n)
+			begin = 0
+			end = n
+			while begin < end do:
+				mid = (begin+end)/2
+				if key == A[mid] then return mid
+				if key < A[mid] then 
+					end = mid
+				else
+					begin = 1+mid 
+			return "element not found" // or return some crazy value like -1
+			
+		> So what is the complexity? 
+			- how many time will the while loop run for?
+			- The size of the whole array is cut in half everytime , so the size is 2^n where n is the number of interations.
+			- What is the wosrt case? 
+			> O(log(n))
+			
+		
+		
+		> Assuming that 2 no elements in an array are the same, how can we find he global maximum? (easy)
+			- How to find the LOCAL maximum? ie. peak finding
+			- Checking if the neighbours are smaller than some element > can we use divide and conquer?
+			- We assume that the start and end of the array is -inf
+			
+			Given an array, check the middle, if it is a peak already = ez game.
+			If the element is not a peak, then which side do we recursively go towards?
+			ANS : the larger side! duh!
+			
+			Pseuduocode :
+			
+			FindPeak(A, n)
+				mid = n/2
+				if A[mid] is a peak then return mid
+				else if A[mid+1] > A[mid]
+					find peak in RHS
+				else if A[mid-1] > A[mid]
+					find peak in LHS
+			
+			> What is the time complexity of this algorithm? O(log n)
+			
+		> What about finding local peaks in a 2D array?
+			- Can we use the same algorithm? ie. Find GLOBAL max in each columns then FindPeak the array of max elements.
+			> Yes but it will be nO(log n) which is quite slow...
+			
+			> We use LAZY evaluation : only compute the global max of each column WHEN it is needed => so no need to find every gobal col. max.
+			> O(n log m) , which is better than checking the max of each col leading to O(nm).
+			
+			
+		
+4. Big OMEGA notation : considers the best case that can happen, so it is an lower bound of the time complexity.
+
+
+			

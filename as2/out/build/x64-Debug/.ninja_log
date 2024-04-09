@@ -1,0 +1,20 @@
+# ninja log v5
+65	830	7299602256630664	CMakeFiles/food.dir/food.cpp.obj	2a0b4764929a7e29
+832	905	7299602257321903	food.lib	55e43541e682a3bf
+119	2547	7294555779378787	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	f395a92d42e84ba3
+21	1516	7301227050178430	CMakeFiles/linked_list_test.dir/linked_list_test.cpp.obj	eb7adf5cc5d5fe1e
+72	1578	7299602263991370	CMakeFiles/food_test.dir/food_test.cpp.obj	d2563eca58ceb129
+77	3654	7294555790589537	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.obj	7f74965c7b6a422e
+43	3744	7294555791533845	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	eb69f09d1de93aca
+100	2731	7294555781434415	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	9e3f4accbc902750
+57	4833	7294555802421602	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.obj	89831eef035cdb28
+35	4909	7294555803040591	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.obj	45e0545ba27ac076
+4833	4949	7294555803379612	lib/gmock_main.lib	d4619de66f5521f3
+4909	5021	7294555804008816	lib/gmock.lib	c6a60a6da9920ee3
+113	5077	7294555804850536	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	52a8d3e846a0248d
+5077	5173	7294555805585430	lib/gtest.lib	83bd3e742dd732f2
+5174	5251	7294555806573244	lib/gtest_main.lib	f15594b95a3347bb
+1579	1950	7299602267169045	food_test.exe	9cf04a0b37fe0618
+1517	1816	7301227052436946	linked_list_test.exe	1b99f0ed670632dc
+8	1588	7307281523981605	CMakeFiles/linked_list_test.dir/linked_list_test.cpp.obj	eb7adf5cc5d5fe1e
+1589	2061	7307281527454094	linked_list_test.exe	1b99f0ed670632dc

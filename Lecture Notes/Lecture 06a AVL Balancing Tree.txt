@@ -1,0 +1,35 @@
+Lecture 06a - AVL Balancing Tree
+
+1. Tree height:
+	> Determines the time complexity of the methods of the tree
+	> So balancing the tree will improve the efficiency of our tree methods.
+	
+2. Invariant > a node is balanced in AVL tree if the height of the left child and right child differ by no more than 1.
+
+3. Recall: Inserting can disrupt the balance of the tree, meaning we need to re-balance the tree after insertion and deleting of nodes.
+
+4. Recall: We can re-balance a tree or sub-tree by rotating nodes to the left or right.
+
+	> For insertion: we will of course distrupt the balance of more than one node, every parent/grand parent up the branch will be distrupted.
+			
+		HOWEVER > we just need to re-balance the LOWEST unbalanced node according to the algorithm. Why? 
+		
+		Ok... how to actually balance using rotations?
+		
+		1. Define some terms : Left heavy vs Right heavy (which sub-tree is taller?)
+		
+		2. If node is left heavy and unbalanced:
+			
+			> if node.left(left subtree) is balanced >>> rotate right 
+			> if node.left is left heavy also >>> rotate right
+			> if node.left is RIGHT heavy >>> rotate left >>> rotate right
+			
+			* Can flip for the case that the node is right heavy
+			* At most 2 rotations are needed for inserting*
+	
+	> For deleting : we cannot just re-balance the lowest unbalanced node, we need to balance all the nodes in the branch (ie the ancestors)
+		
+		> At most o(log n) rotations
+		> Since we need to re-balance all the nodes back to the root of the tree.
+		
+		

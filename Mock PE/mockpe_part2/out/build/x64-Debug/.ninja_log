@@ -1,0 +1,14 @@
+# ninja log v5
+16	1107	7331412795700958	CMakeFiles/SuperFib_test.dir/SuperFib_test.cpp.obj	1c1dadfd7d723692
+52	2483	7331408086695108	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	45b06e445d9f68ea
+20	5124	7331408113162365	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.obj	f8a8e5e152e73838
+33	2668	7331408088500408	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	82b5ad7fd8760e6c
+26	3866	7331408100338621	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.obj	e6e41738346939bd
+15	4019	7331408102237383	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	da762cb6b2e0a3ab
+39	5114	7331408113100465	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	c48a63546f515c1e
+5115	5252	7331408114334720	lib/gtest.lib	83bd3e742dd732f2
+5124	5276	7331408114445466	lib/gmock_main.lib	d4619de66f5521f3
+5252	5300	7331408115061845	lib/gtest_main.lib	f15594b95a3347bb
+10	5448	7331408116470093	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.obj	b782166b6e6015b1
+5449	5558	7331408117347982	lib/gmock.lib	c6a60a6da9920ee3
+1107	1326	7331412797401799	SuperFib_test.exe	8bd1e8c775751ce
