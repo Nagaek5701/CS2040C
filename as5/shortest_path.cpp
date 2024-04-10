@@ -9,8 +9,8 @@ Path shortestPath(const Graph& g, int source, int dest) {
 	int distance = 0;
 	vector<int> path;
 	Heap<GraphEdge> pQueue; //construct pQueue of graph edges
-	int* shortestDist = new int[numVertex];
-	int* ExtractedVerts = new int[numVertex];
+	int* shortestDist = new int[numVertex];//to keep track of delta (source, node)
+	int* ExtractedVerts = new int[numVertex];//to keep track of 'unextracted' nodes
 	int* parentVerts = new int[numVertex]; //to keep track of path taken
 	
 
@@ -69,7 +69,11 @@ Path shortestPath(const Graph& g, int source, int dest) {
 	}
 	else
 		throw std::out_of_range("Path does not exist");
-	
+
+	//Free up memory used for tracking arrays
+	delete[] shortestDist;
+	delete[] ExtractedVerts;
+	delete[] parentVerts;
 
 	return Path(-destDist, path);
 
